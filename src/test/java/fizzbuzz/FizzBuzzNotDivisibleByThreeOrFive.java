@@ -12,7 +12,7 @@ import org.junit.runner.RunWith;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(Parameterized.class)
-public class FizzBuzzTest {
+public class FizzBuzzNotDivisibleByThreeOrFive {
     private Integer num;
     private String expectedResult;
     private FizzBuzz fizzbuzz;
@@ -22,7 +22,7 @@ public class FizzBuzzTest {
         fizzbuzz = new FizzBuzz();
     }
 
-    public FizzBuzzTest(Integer num, String expectedResult) {
+    public FizzBuzzNotDivisibleByThreeOrFive(Integer num, String expectedResult) {
         this.num = num;
         this.expectedResult = expectedResult;
     }
@@ -32,31 +32,22 @@ public class FizzBuzzTest {
         return Arrays.asList(new Object[][] {
                 {1, "1"},
                 {2, "2"},
-                {3, "fizz"},
                 {4, "4"},
-                {5, "buzz"},
-                {6, "fizz"},
                 {7, "7"},
                 {8, "8"},
-                {9, "fizz"},
-                {10, "buzz"},
                 {11, "11"},
-                {12, "fizz"},
                 {13, "13"},
                 {14, "14"},
-                {15, "fizzbuzz"},
                 {16, "16"},
                 {17, "17"},
-                {18, "fizz"},
                 {19, "19"},
-                {20, "buzz"},
+                {51, "51"},
+                {734, "734"},
         });
     }
 
     @Test
-    public void returnsNumberWhenDivisibleByThreeAndFive() {
-        System.out.println(String.format("num: %d, expected: %s, actual: %s, expected equals actual: %b", num, expectedResult, fizzbuzz.testDivisors(num), expectedResult.equals(fizzbuzz.testDivisors(num))));
-        System.out.println("---------------------");
+    public void returnsFizzbuzzSeries() {
         assertEquals(expectedResult, fizzbuzz.testDivisors(num));
     }
 }

@@ -1,10 +1,16 @@
 package fizzbuzz;
 
 public class FizzBuzz {
-    public void printSeries(int num) {
+    private String seriesString = "";
+
+    public String printSeries(int num) {
+        String spacer = " ";
         for (int i=1; i<=num; i++) {
-            System.out.println(testDivisors(i));
+            seriesString += testDivisors(i);
+            if(i!=num) seriesString += spacer;
         }
+        System.out.println(seriesString);
+        return seriesString;
     }
 
     public String testDivisors(int num) {
